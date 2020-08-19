@@ -1,0 +1,56 @@
+﻿@model CreatePlaceModel
+@{
+    ViewData["Title"] = "CreatePlace";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var newPlace = Model.PlaceInfo;
+}
+
+<h2>CreatePlace</h2>
+
+<form asp-area="Admin" asp-controller="Geo" asp-action="CreatePlace" method="post" class="data-block">
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Parent place</span>
+        </div>
+        <div class="data-row-value-box">
+            <select name="@nameof(newPlace.ParentPlaceId)"
+                    asp-items="@(new SelectList(Model.ParentPlaces, "Key", "Value"))">
+                <option value="null">[no parent]</option>
+            </select>
+            <span asp-validation-for="PlaceInfo.ParentPlaceId"></span>
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Place type</span>
+        </div>
+        <div class="data-row-value-box">
+            <select name="@nameof(newPlace.PlaceType)"
+                    asp-items="@(new SelectList(Enum.GetNames(typeof(PlaceType)), Model.PlaceInfo.PlaceType))"></select>
+            <span asp-validation-for="PlaceInfo.PlaceType"></span>
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Is enabled:</span>
+        </div>
+        <div class="data-row-value-box">
+            <input type="checkbox" id="PlaceIsEnabled" name="@nameof(newPlace.IsEnabled)" value="true" @(Html.Raw(Model.PlaceInfo.IsEnabled ? "checked=\"checked\"" : "")) />
+            <label for="PlaceIsEnabled"></label>
+            <span asp-validation-for="PlaceInfo.IsEnabled"></span>
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <label asp-for="PlaceInfo.PlaceCode">Place Code:</label>
+        </div>
+        <div class="data-row-value-box">
+            <input type="text" name="@nameof(newPlace.PlaceCode)" value="@Model.PlaceInfo.PlaceCode" />
+            <span asp-validation-for="PlaceInfo.PlaceCode"></span>
+        </div>
+    </div>
+    <div class="data-row">
+        <input type="submit" value="Submit" />
+    </div>
+</form>

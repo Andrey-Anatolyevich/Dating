@@ -1,0 +1,19 @@
+﻿@import "base.scss";
+
+$color-enabled: #bdf0bd;
+$color-enabled-dk: #a4d4a4;
+
+.super-nav {
+    background-color: $color-main-bg;
+    padding: 0.2em 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.enabled {
+    background-color: $color-enabled;
+    border-color: $color-enabled-dk;
+    border-width: 1px;
+    border-style: solid;
+}

@@ -1,0 +1,55 @@
+﻿@model RegistrationModel
+@{
+    var registerString = @Model.GetLocaledString("Register");
+    ViewData["Title"] = registerString;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-center">
+    <div>
+        <h2>@registerString</h2>
+        <form asp-area="Account" asp-controller="Management" asp-action="Register" class="data-block">
+            @Html.AntiForgeryToken()
+            <div class="data-row">
+                <div class="data-row-label-box">
+                    <span>@Model.GetLocaledString("Login")</span>
+                </div>
+                <div class="data-row-value-box">
+                    <input type="text" name="@nameof(Model.Login)" />
+                </div>
+            </div>
+
+            <div class="data-row">
+                <div class="data-row-label-box">
+                    <span>@Model.GetLocaledString("Email")</span>
+                </div>
+                <div class="data-row-value-box">
+                    <input type="text" name="@nameof(Model.Email)" />
+                </div>
+            </div>
+
+            <div class="data-row">
+                <div class="data-row-label-box">
+                    <span>@Model.GetLocaledString("Password")</span>
+                </div>
+                <div class="data-row-value-box">
+                    <input type="text" name="@nameof(Model.Password1)" />
+                </div>
+            </div>
+
+            <div class="data-row">
+                <div class="data-row-label-box">
+                    <span>@Model.GetLocaledString("ConfirmPassword")</span>
+                </div>
+                <div class="data-row-value-box">
+                    <input type="text" name="@nameof(Model.Password2)" />
+                </div>
+            </div>
+
+            <div class="data-row">
+                <input type="submit" value="@Model.GetLocaledString("Submit")" />
+            </div>
+        </form>
+    </div>
+</div>

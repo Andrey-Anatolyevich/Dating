@@ -1,0 +1,43 @@
+﻿@model BaseViewModel
+@{
+    ViewData["Title"] = "MyAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = Model.CurrentUser.Value;
+}
+
+<h2>My account info</h2>
+
+<div class="data-block">
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Registered:</span>
+        </div>
+        <div class="data-row-value-box">
+            <span>@user.DateCreated</span>
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Last Login:</span>
+        </div>
+        <div class="data-row-value-box">
+            <span>@user.DateLastLogin</span>
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Email:</span>
+        </div>
+        <div class="data-row-value-box">
+            <span>@user.Email</span>
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Locale:</span>
+        </div>
+        <div class="data-row-value-box">
+            <span>@user.Locale.Code</span>
+        </div>
+    </div>
+</div>

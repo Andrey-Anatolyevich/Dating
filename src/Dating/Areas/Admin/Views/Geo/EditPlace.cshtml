@@ -1,0 +1,36 @@
+﻿@model EditPlaceModel
+@{
+    ViewData["Title"] = "EditPlace";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var place = Model.PlaceInfo;
+}
+
+<h2>EditPlace</h2>
+
+<form asp-area="Admin" asp-controller="Geo" asp-action="EditPlace" method="post">
+    <input type="hidden" name="@nameof(place.Id)" value="@place.Id" />
+    <input type="hidden" name="@nameof(place.PlaceType)" value="@place.PlaceType" />
+    <input type="hidden" name="@nameof(place.ParentPlaceId)" value="@place.ParentPlaceId" />
+
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <label asp-for="@place.PlaceCode">Place Code:</label>
+        </div>
+        <div class="data-row-value-box">
+            <input type="text" name="@nameof(place.PlaceCode)" value="@place.PlaceCode" />
+        </div>
+    </div>
+    <div class="data-row">
+        <div class="data-row-label-box">
+            <span>Is enabled:</span>
+        </div>
+        <div class="data-row-value-box">
+            <input id="Place_is_enabled" type="checkbox" name="@nameof(place.IsEnabled)" value="true" @(Html.Raw(place.IsEnabled ? "checked=\"checked\"" : "")) />
+            <label for="Place_is_enabled"></label>
+        </div>
+    </div>
+    <div class="data-row">
+        <input type="submit" value="Submit" />
+    </div>
+</form>

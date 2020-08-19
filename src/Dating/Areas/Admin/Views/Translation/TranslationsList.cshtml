@@ -1,0 +1,35 @@
+﻿@model TranslationsListModel
+@{
+    ViewData["Title"] = "Translations List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Translations List</h3>
+
+<div class="data-block">
+    <div class="data-row">
+        @if (Model.Translations.Success)
+        {
+            <span>Total count: @Model.Translations.Value?.Count()</span>
+        }
+        else
+        {
+            <span>Error: @Model.Translations.ErrorMessage</span>
+        }
+    </div>
+</div>
+
+<div class="data-block">
+    @foreach (var locale in Model.Translations.Value)
+    {
+        <div class="data-row">
+            <div class="data-row-label-box">
+                <span>@locale.Id</span>
+            </div>
+            <div class="data-row-value-box">
+
+                <span>@locale.Value</span>
+            </div>
+        </div>
+    }
+</div>

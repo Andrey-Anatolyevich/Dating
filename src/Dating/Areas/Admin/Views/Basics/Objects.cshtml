@@ -1,0 +1,39 @@
+﻿@model ObjectsModel
+@{
+    ViewData["Title"] = "Objects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script asp-src-include="js/admin/Objects.js"></script>
+}
+
+<div class="data-block">
+    <div class="data-row">
+        <div class="data-row">
+            <span>Type: </span>
+            <select id="ObjectTypeSelector" onchange="ObjectTypeChanged(this)">
+                <option value="null">[none]</option>
+                @foreach (var type in Model.ObjectTypes)
+                {
+                    <option value="@type.Id">@type.Code</option>
+                }
+            </select>
+        </div>
+        <div class="data-row">
+            <span>Code: </span><input id="objectName" type="text" />
+            <span class="btn" onclick="Add()">Add to ROOT</span>
+            <span class="btn" onclick="AddAsChild()">Add as child</span>
+            <span class="btn" onclick="SetCode()">Set Code</span>
+        </div>
+        <div class="data-row-third">
+            <div class="data-row">
+                <span class="btn" onclick="DeleteSelected()">Delete selected</span>
+            </div>
+            <div id="ObjectsTree"></div>
+        </div>
+        <div class="data-row-rest">
+            <div id="Translator"></div>
+        </div>
+    </div>
+</div>

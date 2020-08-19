@@ -1,0 +1,227 @@
+﻿@model EditAdModel
+@{
+    ViewData["Title"] = Model.GetLocaledString("Place_An_Ad");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    const string RowClass = "data-row";
+    const string FieldBoxClass = "data-row-label-box";
+    const string ValueBoxClass = "data-row-value-box";
+}
+
+@section Scripts{
+    <script>
+        var editAdSettings = {
+            maxPicsAllowed : @Model.MaxPicsAllowed,
+            picIdsSeparator: '@Model.PicIdsSeparator',
+            existingPicsJson: '@Model.ExistingPicsJson'
+        };
+    </script>
+    <script asp-src-include="~/js/ads/placeAd.js"></script>
+}
+
+@if (Model.CurrentUser.Success)
+{
+    <div class="data-row">
+        <partial name="_EscortUserPanel" model="@Model" />
+    </div>
+}
+<div class="data-block">
+    <div class="data-row-half">
+        <input type="button" id="add-pic-btn" class="btn" onclick="picsManager.UploadPic()" value="@Model.GetLocaledString("Add_Picture")" />
+        <span>Pictures: <span id="pics-uploaded">0</span> / @Model.MaxPicsAllowed</span>
+        <div id="PicturesBox" class="user-pics-box">
+        </div>
+    </div>
+    <div class="data-row-half">
+        <form asp-area="" asp-controller="Ads" asp-action="EditAd" method="post">
+            <input name="AdId" type="hidden" value="@Model.AdId" />
+            <input id="main-pic-id" name="MainPicId" type="hidden" />
+            <input id="pics-ids" name="PicsIdsJoined" type="hidden" />
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("City")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="PlaceId">
+                        @foreach (var place in Model.Places)
+                        {
+                            <option value="@place.Id">@Model.GetLocaledString(place.PlaceCode)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Name")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <input name="@nameof(Model.Name)" type="text" value="@Model.Name" />
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Gender")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="GenderId">
+                        @foreach (var gender in Model.Genders)
+                        {
+                            <option value="@gender.Id">@Model.GetLocaledObject(gender.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("DateOfBirth")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <input name="@nameof(Model.DateBorn)" type="date" value="@Model.DateBorn.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Height")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="HeightCm">
+                        @for (var i = 110; i < 220; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <span>  @Model.GetLocaledString("cm")</span>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Weight")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="WeightGr">
+                        @for (var i = 40; i < 220; i++)
+                        {
+                            <option value="@(i * 1000)">@i</option>
+                        }
+                    </select>
+                    <span>  @Model.GetLocaledString("kg")</span>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Eye_color")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="EyeColorId">
+                        <option value="null"></option>
+                        @foreach (var obj in Model.EyeColors)
+                        {
+                            <option value="@obj.Id">@Model.GetLocaledObject(obj.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Hair_color")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="HairColorId">
+                        <option value="null"></option>
+                        @foreach (var obj in Model.HairColors)
+                        {
+                            <option value="@obj.Id">@Model.GetLocaledObject(obj.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Hair_length")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="HairLengthId">
+                        <option value="null"></option>
+                        @foreach (var obj in Model.HairLength)
+                        {
+                            <option value="@obj.Id">@Model.GetLocaledObject(obj.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            @*<div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Public_hair")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="PublicHairTypeId">
+                        <option value="null"></option>
+                        @foreach (var obj in Model.PublicHairType)
+                        {
+                            <option value="@obj.Id">@Model.GetLocaledObject(obj.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Breast_size")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="BreastSizeId">
+                        <option value="null"></option>
+                        @foreach (var obj in Model.BreastSize)
+                        {
+                            <option value="@obj.Id">@Model.GetLocaledObject(obj.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Breast_type")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <select asp-for="BreastTypeId">
+                        <option value="null"></option>
+                        @foreach (var obj in Model.BreastType)
+                        {
+                            <option value="@obj.Id">@Model.GetLocaledObject(obj.Id)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("About")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <textarea name="@nameof(Model.About)" cols="50" rows="10">@Model.About</textarea>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Compensation")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <textarea name="@nameof(Model.Pricing)" cols="50" rows="10">@Model.Pricing</textarea>
+                </div>
+            </div>
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <span>@Model.GetLocaledString("Contacts")</span>
+                </div>
+                <div class="@ValueBoxClass">
+                    <textarea name="@nameof(Model.Contacts)" cols="50" rows="5">@Model.Contacts</textarea>
+                </div>
+            </div>*@
+            <div class="@RowClass">
+                <div class="@FieldBoxClass">
+                    <input type="submit" value="@Model.GetLocaledString("Save")" />
+                </div>
+                <div class="@ValueBoxClass">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

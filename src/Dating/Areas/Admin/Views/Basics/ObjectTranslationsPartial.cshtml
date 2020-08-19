@@ -1,0 +1,22 @@
+﻿@model ObjectTranslationsPartialModel
+
+<h4>Translations for @Model.Object.ObjectCode</h4>
+<div class="data-block">
+    @foreach (var locale in Model.Locales.OrderBy(x => x.Code))
+    {
+        var translation = Model.Translations.FirstOrDefault(x => x.LocaleId == locale.Id);
+        <div>
+            <input type="hidden" name="objectId" value="@Model.Object.Id" />
+            <input type="hidden" name="localeId" value="@locale.Id" />
+            <div class="data-row">
+                <div class="data-row-label-box">
+                    @locale.Code
+                </div>
+                <div class="data-row-value-box">
+                    <input type="text" name="value" value="@translation?.Value" />
+                    <input type="button" value="Set" onclick="translator.setValue(@Model.Object.Id, @locale.Id, this)" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

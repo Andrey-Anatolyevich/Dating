@@ -1,0 +1,275 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configurations>Development;Release</Configurations>
+    <TypeScriptToolsVersion>3.9</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\js\admin\Objects.ts" />
+    <Content Remove="wwwroot\js\ads\placeAd.ts" />
+    <Content Remove="wwwroot\js\extensions.js" />
+    <Content Remove="wwwroot\js\escort\ad-view.ts" />
+    <Content Remove="wwwroot\js\escort\ads-list.ts" />
+    <Content Remove="_ts\tool\Utils.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\Api\Views\Dating\GetAdDetails.txt" />
+    <None Remove="_ts\app\appLoader.tsx" />
+    <None Remove="_ts\app\model\admin\localeInfo.ts" />
+    <None Remove="_ts\app\model\admin\userInfoJson.ts" />
+    <None Remove="_ts\app\model\apiData.ts" />
+    <None Remove="_ts\app\model\escort\ageRange.ts" />
+    <None Remove="_ts\app\model\geo\locationInfo.ts" />
+    <None Remove="_ts\app\model\geo\placesDataProvider.ts" />
+    <None Remove="_ts\app\service\initialLoaderService.ts" />
+    <None Remove="_ts\app\service\localizationService.ts" />
+    <None Remove="_ts\app\state\action\actionFactory.ts" />
+    <None Remove="_ts\app\state\action\actionTypes.ts" />
+    <None Remove="_ts\app\state\action\interfaces\ageRangeLoadedAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\dating\adFilterCitySelectAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\dating\adFilterCountrySelectAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\dating\adListItemsLoadAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\dating\adListItemsLoadedAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\escortFilterNewAgeMaxAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\escortFilterNewAgeMinAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\initialDataLoadedAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\locationsLoadedAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\otherAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\signInRequestAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\userSignedInAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\userSignedOutAction.ts" />
+    <None Remove="_ts\app\state\action\interfaces\_init\localeIdWithTranslationsLoaded.ts" />
+    <None Remove="_ts\app\state\appState.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\ageRangeLoadedHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\dating\adFilterNewAgeMaxHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\dating\adFilterNewAgeMinHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\dating\adFilterNewCitySelectHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\dating\adFilterNewCountrySelectHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\dating\adListItemsLoadedHander.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\dating\adListItemsLoadHander.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\initialDataLoadedHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\locationsLoadedHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\signInRequestHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\userSignedInHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\userSignedOutHandler.ts" />
+    <None Remove="_ts\app\state\reducer\actionHandler\_init\localeIdWithTranslationsLoadedHandler.ts" />
+    <None Remove="_ts\app\state\reducer\appStateReducerService.ts" />
+    <None Remove="_ts\app\state\reducer\iActionHandler.ts" />
+    <None Remove="_ts\app\state\reduxAppStateStore.ts" />
+    <None Remove="_ts\app\ViewComponent.ts" />
+    <None Remove="_ts\app\view\admin\adminLocalesList.tsx" />
+    <None Remove="_ts\app\view\admin\adminNavBar.tsx" />
+    <None Remove="_ts\app\view\admin\adminObjectTypes.tsx" />
+    <None Remove="_ts\app\view\admin\adminPlaces.tsx" />
+    <None Remove="_ts\app\view\admin\adminUsersList.tsx" />
+    <None Remove="_ts\app\view\admin\placeComponent.tsx" />
+    <None Remove="_ts\app\view\auth\signin.tsx" />
+    <None Remove="_ts\app\view\auth\signOut.tsx" />
+    <None Remove="_ts\app\view\dating\datingAdDetailsView.tsx" />
+    <None Remove="_ts\app\view\dating\datingAdListItem.tsx" />
+    <None Remove="_ts\app\view\dating\datingAdListPager.tsx" />
+    <None Remove="_ts\app\view\dating\datingList.tsx" />
+    <None Remove="_ts\app\view\dating\datingListFilters.tsx" />
+    <None Remove="_ts\app\view\dating\datingListFiltersLocation.tsx" />
+    <None Remove="_ts\app\view\dating\datingNavBar.tsx" />
+    <None Remove="_ts\app\view\shell\appShell.tsx" />
+    <None Remove="_ts\app\view\utils\dateBox.ts" />
+    <None Remove="_ts\app\view\utils\inlinePopup.tsx" />
+    <None Remove="_ts\app\_init\iLoader.ts" />
+    <None Remove="_ts\app\_init\loader\currentUserLoader.ts" />
+    <None Remove="_ts\app\_init\loader\datingAgeRangeLoader.ts" />
+    <None Remove="_ts\app\_init\loader\localizationLoader.ts" />
+    <None Remove="_ts\app\_init\loader\placesLoader.ts" />
+    <None Remove="_ts\extention\extensions.ts" />
+    <None Remove="_ts\initialLoader.tsx" />
+    <None Remove="_ts\Launcher.tsx" />
+    <None Remove="_ts\tool\mergeTool.ts" />
+    <None Remove="_ts\tool\objectComparer.ts" />
+    <None Remove="_ts\tool\timeSpan.ts" />
+    <None Remove="_ts\tool\Utils - Copy.js" />
+    <None Remove="_ts\tool\Utils - Copy.js.map" />
+    <None Remove="_ts\_cs_to_ts\apiResponse.ts" />
+    <None Remove="_ts\_cs_to_ts\areas\api\auth\signInRequestModel.ts" />
+    <None Remove="_ts\_cs_to_ts\areas\api\auth\signInResponseModel.ts" />
+    <None Remove="_ts\_cs_to_ts\areas\api\basics\objectType.ts" />
+    <None Remove="_ts\_cs_to_ts\areas\api\geo\placeInfoModel.ts" />
+    <None Remove="_ts\_cs_to_ts\areas\api\geo\placeType.ts" />
+    <None Remove="_ts\_cs_to_ts\data\getLocaleWithTranslationsResponse.ts" />
+    <None Remove="_ts\_cs_to_ts\data\translationInfo.ts" />
+    <None Remove="_ts\_cs_to_ts\dating\adsListFilterRequest.ts" />
+    <None Remove="_ts\_cs_to_ts\dating\AdsListItem.ts" />
+    <None Remove="_ts\_cs_to_ts\dating\getAdsModelReponse.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Areas\Api\Views\Dating\GetAdDetails.txt" />
+    <Content Include="_ts\tool\http.js.map" />
+    <Content Include="_ts\tool\mergeTool.js" />
+    <Content Include="_ts\tool\utils.js" />
+    <Content Include="_ts\tool\utils.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.4" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Account\Views\Activity\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatingCode\DatingCode.csproj" />
+    <ProjectReference Include="..\DatingStorage\DatingStorage.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\ads\placeAd.ts" />
+    <TypeScriptCompile Include="_ts\app\appLoader.tsx" />
+    <TypeScriptCompile Include="_ts\app\model\admin\localeInfo.ts" />
+    <TypeScriptCompile Include="_ts\app\model\admin\userInfoJson.ts" />
+    <TypeScriptCompile Include="_ts\app\model\apiData.ts" />
+    <TypeScriptCompile Include="_ts\app\model\escort\ageRange.ts" />
+    <TypeScriptCompile Include="_ts\app\service\localizationService.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\dating\adFilterCitySelectAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\dating\adFilterNewAgeMaxAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\dating\adFilterCountrySelectAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\dating\adListItemsLoadedAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\dating\adListItemsLoadAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\_init\initialDataLoadedAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\_init\ageRangeLoadedAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\dating\adFilterNewAgeMinAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\_init\localeIdWithTranslationsLoaded.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\dating\adListItemsLoadedHander.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\dating\adListItemsLoadHander.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\dating\adFilterNewCountrySelectHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\dating\adFilterNewCitySelectHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\dating\adFilterNewAgeMinHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\dating\adFilterNewAgeMaxHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\_init\initialDataLoadedHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\_init\ageRangeLoadedHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\_init\localeIdWithTranslationsLoadedHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\viewComponent.ts" />
+    <TypeScriptCompile Include="_ts\app\view\admin\adminObjectTypes.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\admin\adminPlaces.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\admin\adminUsersList.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\admin\adminLocalesList.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\admin\placeComponent.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\dating\datingAdDetailsView.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\dating\datingAdListPager.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\dating\datingAdListItem.tsx" />
+    <TypeScriptCompile Include="_ts\app\_init\loader\localizationLoader.ts" />
+    <TypeScriptCompile Include="_ts\extention\extensions.ts" />
+    <TypeScriptCompile Include="_ts\tool\dateBox.ts" />
+    <TypeScriptCompile Include="_ts\app\_init\iLoader.ts" />
+    <TypeScriptCompile Include="_ts\app\_init\initialLoaderService.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\actionFactory.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\actionKey.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\actionTypes.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\auth\userSignedOutAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\auth\userSignedInAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\auth\signInRequestAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\_init\locationsLoadedAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\action\interfaces\otherAction.ts" />
+    <TypeScriptCompile Include="_ts\app\state\appState.ts" />
+    <TypeScriptCompile Include="_ts\app\initialLoader.tsx" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\auth\userSignedOutHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\auth\userSignedInHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\auth\signInRequestHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\actionHandler\_init\locationsLoadedHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\appStateReducerService.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reducer\iActionHandler.ts" />
+    <TypeScriptCompile Include="_ts\app\state\reduxAppStateStore.ts" />
+    <TypeScriptCompile Include="_ts\app\view\auth\signIn.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\auth\signOut.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\dating\datingListFiltersLocation.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\utils\inlinePopup.tsx" />
+    <TypeScriptCompile Include="_ts\app\_init\loader\currentUserLoader.ts" />
+    <TypeScriptCompile Include="_ts\app\_init\loader\datingAgeRangeLoader.ts" />
+    <TypeScriptCompile Include="_ts\app\_init\loader\placesLoader.ts" />
+    <TypeScriptCompile Include="wwwroot\js\admin\Objects.ts" />
+    <TypeScriptCompile Include="wwwroot\js\escort\ad-view.ts" />
+    <TypeScriptCompile Include="wwwroot\js\escort\ads-list.ts" />
+    <TypeScriptCompile Include="_ts\tool\http.ts" />
+    <TypeScriptCompile Include="_ts\tool\mergeTool.ts" />
+    <TypeScriptCompile Include="_ts\tool\objectComparer.ts" />
+    <TypeScriptCompile Include="_ts\tool\timeSpan.ts" />
+    <TypeScriptCompile Include="_ts\tool\utils.ts" />
+    <TypeScriptCompile Include="_ts\app\model\geo\locationInfo.ts" />
+    <TypeScriptCompile Include="_ts\app\service\locationService.ts" />
+    <TypeScriptCompile Include="_ts\app\view\admin\adminNavBar.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\dating\datingList.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\dating\datingListFilters.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\shell\navBar.tsx" />
+    <TypeScriptCompile Include="_ts\launcher.tsx" />
+    <TypeScriptCompile Include="_ts\app\view\shell\appShell.tsx" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\apiResponse.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\areas\api\auth\signInRequestModel.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\areas\api\auth\signInResponseModel.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\areas\api\basics\objectType.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\areas\api\geo\placeInfoModel.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\areas\api\geo\placeType.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\data\getLocaleWithTranslationsResponse.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\data\translationInfo.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\dating\adsListFilterRequest.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\dating\adsListItem.ts" />
+    <TypeScriptCompile Include="_ts\_cs_to_ts\dating\getAdsModelReponse.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Account\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Infrastructure\ConfigJsons\appConfig.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="_ts\app\view\dating\datingAdListPager.js">
+      <DependentUpon>datingAdListPager.tsx</DependentUpon>
+    </None>
+    <None Update="_ts\app\_init\loader\currentUserLoader.js">
+      <DependentUpon>currentUserLoader.ts</DependentUpon>
+    </None>
+    <None Update="_ts\app\_init\loader\currentUserLoader.js.map">
+      <DependentUpon>currentUserLoader.js</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Development'">
+    <TypeScriptTarget>ES2017</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+</Project>

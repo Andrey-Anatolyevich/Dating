@@ -1,0 +1,38 @@
+﻿@model MyAdsModel
+@{
+    ViewData["Title"] = "MyAds";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userAds = Model.Ads.Count();
+}
+
+@if (Model.CurrentUser.Success)
+{
+    <div class="data-row">
+        <partial name="_EscortUserPanel" model="@Model" />
+    </div>
+}
+
+@if (Model.Ads.Count() < 20)
+{
+    <div class="data-row">
+        <a class="btn" asp-area="" asp-controller="Ads" asp-action="EditAd">@Model.GetLocaledString("Place_An_Ad")</a>
+    </div>
+}
+
+<div class="data-block">
+    <div class="data-row">
+        <div class="myAds_userAdsBox">
+            @foreach (var ad in Model.Ads)
+            {
+                <div class="myAds_userAd">
+                    <img src="@ad.MainPicRelativeUrl" /><br />
+                    <span>@ad.Name</span><br />
+                    <span>IsActive: @ad.IsActive</span><br />
+                    <span>Pics: @ad.MediaCount</span><br />
+                    <span>Last Modified: @ad.LastModified.ToString("yyyy-MM-dd HH:mm")</span><br />
+                    <a class="btn" asp-area="" asp-controller="Ads" asp-action="EditAd" asp-route-adId="@ad.AdId">Edit</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿export enum ActionKey {
+    other = 'other',
+    initialDataLoaded = 'initialDataLoaded',
+    locationsLoaded = 'locationsLoaded',
+    localeIdWithTranslationsLoaded = 'localeIdWithTranslationsLoaded',
+    signInRequest = 'signInRequest',
+    userSignedIn = 'userSignedIn',
+    userSignedOut = 'userSignedOut',
+    ageRangeLoaded = 'ageRangeLoaded',
+    adFilterNewAgeMin = 'adFilterNewAgeMin',
+    adFilterNewAgeMax = 'adFilterNewAgeMax',
+    adFilterCountrySelect = 'adFilterCountrySelect',
+    adFilterCitySelect = 'adFilterCitySelect',
+    adListItemsLoad = 'adListItemsLoad',
+    adListItemsLoaded = 'adListItemsLoaded',
+};

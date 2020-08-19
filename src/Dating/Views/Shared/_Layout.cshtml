@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escort</title>
+
+    <link asp-href-include="~/style/base.css" rel="stylesheet" />
+    <script asp-src-include="~/js/extensions.js"></script>
+    <script asp-src-include="~/js/tools/utils.js"></script>
+
+    @if (Model.ShowAdminPanel)
+    {
+        <link asp-href-include="~/style/super.css" rel="stylesheet" />
+    }
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
